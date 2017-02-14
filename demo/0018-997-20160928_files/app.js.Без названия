@@ -1,0 +1,37 @@
+$(document).foundation();
+$('head').append('<meta class="app-grid-state" />');
+
+$(document).ready(function(){
+
+	$('#slAdvQuery2 .no-value-message').html("Нажмите на кнопку \"Добавить\" для начала формирования поискового запоса")
+
+	$('#npa-notes a').click(function(){
+		if ( $(this).attr('href').charAt(0) == "#" ) {
+			var hsh = $(this).attr('href').slice(1);
+			$('#npa-tabs').foundation('selectTab', '#npa-text');
+			console.log('a[name='+$(this).attr('href')+']');
+			$("#npa-text").scrollTop( $('a[name='+hsh+']').offset().top - 300 );
+		}
+	});
+
+
+
+
+
+	$('form.ajax').submit(function(event){
+		event.preventDefault();
+
+		var data = {
+			action	: $(this).attr('id'),
+			data 		: $(this).serialize()
+		};
+
+		$(this).find('img.prgrs').css('opacity', 1);
+
+		jQuery.post( ajax.url, data, function(response) {
+			$('#sysmsg').html(response);
+			$('#sysmsg-trigger').click();
+			$('img.prgrs').css('opacity', 0);
+		});
+	});
+});

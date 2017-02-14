@@ -1,0 +1,69 @@
+/*
+ * Ñòèëè òåêñòà ïðè ïå÷àòè
+ */
+
+@media print {
+
+	#npa-text {
+		height: 100%;
+		overflow-y: visible;
+	}
+	
+	a{
+		border:0;
+		text-decoration:none;
+	}
+	
+    a img{
+		border:0
+	}
+	
+    a:after {
+		content:" (" attr(href) ") ";
+		font-size: 90%;
+	}
+	
+    a[href^="/"]:after {
+		content: " (gisnpa-dnr.ru/" attr(href) ") ";
+	}
+	
+	* {
+		font-size: 14pt !important; 
+		line-height: 1.5 !important;
+		margin-bottom: 2.5px !important;
+		margin-top: 2.5px !important;
+		font-family: 'Times New Roman', serif !important;
+	}
+
+	.nextpage {
+		display:block;
+		page-break-before:always;
+	}
+}
+
+/*
+ *Ñòèëè äëÿ êíîïîê ñîçäàíûõ â îêíå äëÿ ïå÷àòè,
+ *êíîïêàì çàäàíà êàðòèíêà äëÿ çíà÷åíèÿ background
+ *ò.ê. ïðîïèñàííûé òåêñòîì çíà÷åíèå êíîïîê áóäóò îòîáðàæàòüñÿ íà ïå÷àòè
+ */
+
+#startPrint, #closeWin {
+	position: fixed;
+	margin: 10px;
+}
+
+#startPrint {
+	right: 120px;
+	width: 163px;
+	height: 46px;
+	background-image: url("startPrint.png");
+	background-repeat: no-repeat;
+}
+
+#closeWin {
+	right: 0;
+	width: 98px;
+	height: 46px;
+	background-image: url("closeWin.png");
+	background-repeat: no-repeat;
+}
